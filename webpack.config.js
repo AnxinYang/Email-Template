@@ -1,8 +1,6 @@
 module.exports = {
     entry: {
-        main: './src/index',
-        //worker: './src/worker',
-        index: './src/ccjs/cc',
+        main: './src/app',
     },
     node: {
         fs: 'empty',
