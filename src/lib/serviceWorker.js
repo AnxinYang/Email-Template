@@ -3,12 +3,12 @@ function setupServiceWorker() {
         console.log('Service worker supported!');
         try {
             navigator.serviceWorker.register('service.js');
-            console.log('Service worker registered.')
+            console.log('Service worker is registered.')
         } catch (e) {
-            console.log('Service worker failed to register. - WTH!?')
+            console.error('Failed to register service worker.', e)
         }
     }else{
-        console.log('Service worker not supported! - Dude, buy a new phone.')
+        console.error('Service worker is not supported.')
     }
 }
 
