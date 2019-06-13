@@ -53,6 +53,7 @@ index.setupContentSection = function (container) {
         });
     let contentHeader = contentContainer.add('div').addClass('list-header');
     contentHeader.add('input').addClass('input-title').attr('placeholder', 'Title...');
+    
     let textDiv = contentHeader.add('div')
         .css({
             position: 'relative',
@@ -77,6 +78,18 @@ index.setupContentSection = function (container) {
             cc.setValue('fields', vars);
         });
     let textBg = textDiv.add('pre').addClass('textarea-background');
+    
+    contentHeader.add('div', 'fields')
+        .bind('fields', function (d) {
+            let self = this;
+            self.removeAllChildren();
+            let div = self.add('table');
+            cc.utils.objectforEach(d, function (data, key, obj) {
+                let tr = div.add('tr').addClass('field-div');
+                tr.add('td').content(key);
+                tr.add('td').add('input');
+            })
+        })
 };
 
 export default index
